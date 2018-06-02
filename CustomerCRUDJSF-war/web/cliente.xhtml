@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+    <html xmlns="http://www.w3.org/1999/xhtml"
+          xmlns:h="http://xmlns.jcp.org/jsf/html"
+          xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Crear/Editar cliente</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <table>
+                <tr>
+                    <td>NAME:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.name}"/></td>                    
+                </tr>
+                <tr>
+                    <td>EMAIL:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.email}"/></td>                    
+                </tr>
+                <tr>
+                    <td>ADDRESS:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.addressline1}"/></td>                    
+                    <td><h:inputText value="#{customerCrearBean.cliente.addressline2}"/></td>                    
+                                        
+                </tr>
+                <tr>
+                    <td>CITY:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.city}"/></td>                    
+                </tr>
+                <tr>
+                    <td>PHONE:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.phone}"/></td>                    
+                </tr>
+                <tr>
+                    <td>FAX:</td>
+                    <td><h:inputText value="#{customerCrearBean.cliente.fax}"/></td>                    
+                </tr>   
+                
+                <tr>
+                    <td>MICROMARKET:</td>
+                    <td>
+                        <h:selectOneMenu value="#{customerCrearBean.supermercadoSeleccionado}">
+                        <f:selectItems value="#{customerCrearBean.listaSupermercados}" var="supermercado" 
+                                       itemValue="#{supermercado.zipCode}" itemLabel="#{supermercado.zipCode}"/>
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                 <tr>
+                    <td>DISCOUNT CODE:</td>
+                    <td>
+                        <h:selectOneMenu value="#{customerCrearBean.codeSeleccionado}">
+                            <f:selectItems value="#{customerCrearBean.listaDescuentos}" var="descuento" 
+                                           itemValue="#{descuento.discountCode}" itemLabel="#{descuento.rate}"/>
+                        </h:selectOneMenu>
+                    </td>
+                </tr>
+                
+            </table>
+            <h:commandButton value="Crear cliente" action="#{customerCrearBean.doGuardar()}"/>
+        </h:form>
+    </h:body>
+</html>
